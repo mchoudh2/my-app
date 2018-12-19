@@ -17,5 +17,15 @@ pipeline {
         echo 'Deploying to SIT'
       }
     }
+    stage('Approval') {
+      steps {
+        input(message: 'Approve for PreProd', submitter: 'mohan')
+      }
+    }
+    stage('Deploy To Preprod') {
+      steps {
+        echo 'Deploying to preprod'
+      }
+    }
   }
 }
