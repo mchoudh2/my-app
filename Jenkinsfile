@@ -7,5 +7,15 @@ pipeline {
         archiveArtifacts 'target/*.jar'
       }
     }
+    stage('Deploy to DIT') {
+      steps {
+        echo 'Deploying to DIT'
+      }
+    }
+    stage('Deploying to SIT') {
+      steps {
+        echo 'Deploying to SIT'
+      }
+    }
   }
 }
