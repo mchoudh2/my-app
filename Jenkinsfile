@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''sh "#!/bin/bash \\n" + 
-       "echo \\"Hello from \\$SHELL\\""
+        sh '''mvn clean package -Dmaven.test.skip=true
 '''
         archiveArtifacts 'target/*.jar'
       }
