@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''mvn clean package -Dmaven.test.skip=true
-'''
+        sh 'echo $(java -version)'
         archiveArtifacts 'target/*.jar'
       }
     }
