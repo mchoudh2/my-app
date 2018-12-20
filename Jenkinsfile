@@ -27,5 +27,10 @@ pipeline {
         echo 'Deploying to preprod'
       }
     }
+    stage('') {
+      steps {
+        error 'Error Manual'
+      }
+    }
   }
 }
