@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo $(java -version)'
+        sh 'echo $(mvn --version)'
         archiveArtifacts 'target/*.jar'
       }
     }
