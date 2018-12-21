@@ -1,28 +1,37 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Build') {
+    agent any
       steps {
         sh '/Users/mohanseervi/Softwares/apache-maven-3.0.5/bin/mvn clean package -Dmaven.test.skip=true'
         archiveArtifacts 'target/*.jar'
       }
     }
     stage('Deploy to DIT') {
+    agent any
       steps {
         echo 'Deploying to DIT'
       }
     }
     stage('Deploying to SIT') {
+    agent any
       steps {
         echo 'Deploying to SIT'
       }
     }
     stage('Approval') {
+     input {
+                message "Approve to deploy to Preprod?"
+                ok "Sim"
+            }
+     agent any
       steps {
-        input(message: 'Approve for PreProd', submitter: 'mohan')
+        echo 'Approved'
       }
     }
     stage('Deploy To Preprod') {
+    agent any
       steps {
         echo 'Deploying to preprod'
       }
