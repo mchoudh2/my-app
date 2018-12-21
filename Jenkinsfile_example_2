@@ -21,6 +21,9 @@ pipeline {
       }
     }
     stage('Approval') {
+    options {
+                timeout(time: 1, unit: 'DAYS')
+            }
      input {
                 message "Approve to deploy to Preprod?"
                 ok "Sim"
